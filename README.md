@@ -1,1 +1,1 @@
-# XUI-Smart-Panel-Manager
+# XUI-Smart-Platform-Manager
