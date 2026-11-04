@@ -49,13 +49,13 @@
 ## نصب (با بررسی هش)
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/XUI-SPM.sh
-curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/XUI-SPM.sh.sha256
+curl -fsSLO https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh
+curl -fsSLO https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh.sha256
 sha256sum -c XUI-SPM.sh.sha256      # باید چاپ کند: XUI-SPM.sh: OK
 sudo bash XUI-SPM.sh
 ```
 
-هش را با صفحهٔ [Releases](https://github.com/YOUR_USER/YOUR_REPO/releases) هم مقایسه کنید؛ اگر دو منبع با هم نخواندند، فایل را اجرا نکنید.
+هش را با صفحهٔ [Releases](https://github.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/releases) هم مقایسه کنید؛ اگر دو منبع با هم نخواندند، فایل را اجرا نکنید.
 
 ## حریم خصوصی
 
