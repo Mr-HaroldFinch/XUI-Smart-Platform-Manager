@@ -3999,7 +3999,7 @@ do_panels() {
 
 # ── Update this script (GitHub) ──────────────────────────────────────────────
 # The raw URL of the published script. Until it is set, the menu asks for it once and remembers it.
-readonly SELF_UPDATE_URL_DEFAULT=''
+readonly SELF_UPDATE_URL_DEFAULT='https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh'
 readonly SELF_UPDATE_CONF='/etc/moc-xui/update_url'
 
 script_version_of() {   # script_version_of <file> -> x.y.m.s
