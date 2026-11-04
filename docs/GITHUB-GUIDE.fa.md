@@ -1,6 +1,6 @@
 # راهنمای قرار دادن اسکریپت در GitHub
 
-مثال‌ها از `YOUR_USER/YOUR_REPO` استفاده می‌کنند. `publish.sh` آن‌ها را با نام واقعی شما جایگزین می‌کند.
+مثال‌ها از `Mr-HaroldFinch/XUI-Smart-Platform-Manager` استفاده می‌کنند. `publish.sh` آن‌ها را با نام واقعی شما جایگزین می‌کند.
 
 ## ۱. ساخت مخزن
 1. وارد github.com شوید (حساب نداشتید، بسازید و ایمیل را تأیید کنید؛ فعال‌کردن 2FA را از Settings -> Password and authentication انجام دهید).
@@ -12,7 +12,7 @@
 پوشهٔ بسته را باز کنید و (در لینوکس / macOS / WSL / Git Bash) اجرا کنید:
 
 ```bash
-./publish.sh YOUR_USER moc-xui-manager        # نام کاربری GitHub و نام مخزن
+./publish.sh Mr-HaroldFinch XUI-Smart-Platform-Manager        # نام کاربری GitHub و نام مخزن
 ```
 
 این دستور:
@@ -33,7 +33,7 @@ cd moc-xui-manager
 git init -b main
 git add -A
 git commit -m "v1.2026.11.4"
-git remote add origin https://github.com/YOUR_USER/moc-xui-manager.git
+git remote add origin https://github.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager.git
 git push -u origin main
 ```
 هنگام push نام کاربری و **Personal Access Token** می‌خواهد (رمز حساب کار نمی‌کند): GitHub -> Settings -> Developer settings -> Personal access tokens -> Fine-grained token، دسترسی *Contents: Read and write* فقط برای همین مخزن. یا با `gh auth login` وارد شوید.
@@ -49,7 +49,7 @@ git push -u origin main
 
 > بدون اجرای `publish.sh` هم همه‌چیز کار می‌کند: هش‌های داخل بسته همین حالا درست‌اند. تنها تفاوت این است که آدرس به‌روزرسانی داخل اسکریپت خالی است و اولین بار در منوی «به‌روزرسانی همین اسکریپت» باید این لینک را وارد کنید (یک بار، بعد خودش یادش می‌ماند):
 > `https://raw.githubusercontent.com/نام‌کاربری/نام‌مخزن/main/XUI-SPM.sh`
-> لینک‌های `YOUR_USER/YOUR_REPO` داخل README را هم می‌شود در خود GitHub با دکمهٔ مداد (Edit) اصلاح کرد؛ فایل `XUI-SPM.sh` را به‌هیچ‌وجه با مداد ویرایش نکنید، چون هش به‌هم می‌خورد.
+> لینک‌های `Mr-HaroldFinch/XUI-Smart-Platform-Manager` داخل README را هم می‌شود در خود GitHub با دکمهٔ مداد (Edit) اصلاح کرد؛ فایل `XUI-SPM.sh` را به‌هیچ‌وجه با مداد ویرایش نکنید، چون هش به‌هم می‌خورد.
 
 ### روش ج - ویندوز با GitHub Desktop (رابط گرافیکی)
 ۱. از desktop.github.com برنامه را نصب کنید و با حساب GitHub وارد شوید.
@@ -87,8 +87,8 @@ Get-FileHash .\XUI-SPM.sh -Algorithm SHA256    # باید با محتوای فا
 بعد از چند دقیقه روی یک سرور تستی:
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/moc-xui-manager/main/XUI-SPM.sh
-curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/moc-xui-manager/main/XUI-SPM.sh.sha256
+curl -fsSLO https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh
+curl -fsSLO https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh.sha256
 sha256sum -c XUI-SPM.sh.sha256
 ```
 باید `XUI-SPM.sh: OK` ببینید. سپس `sudo bash XUI-SPM.sh --check-update`.
@@ -107,6 +107,6 @@ sha256sum -c XUI-SPM.sh.sha256
 ## ۷. نکات
 - **لایسنس:** فایل `LICENSE` را MIT گذاشته‌ام؛ اگر شرط دیگری می‌خواهید تغییرش دهید یا حذفش کنید.
 - **اطلاعات حساس:** هرگز فایل پشتیبان (`XUI_Backup_*`)، `servers.dat` یا توکن را commit نکنید (در `.gitignore` هست).
-- **دسترسی از ایران:** گاهی raw.githubusercontent.com کند یا مسدود است. آینه‌ای مثل `https://cdn.jsdelivr.net/gh/YOUR_USER/moc-xui-manager@main/XUI-SPM.sh` را می‌توانید در README بگذارید؛ هش همان است. در اسکریپت هم `MOC_UPDATE_URL` آدرس دیگری را می‌پذیرد.
+- **دسترسی از ایران:** گاهی raw.githubusercontent.com کند یا مسدود است. آینه‌ای مثل `https://cdn.jsdelivr.net/gh/Mr-HaroldFinch/XUI-Smart-Platform-Manager@main/XUI-SPM.sh` را می‌توانید در README بگذارید؛ هش همان است. در اسکریپت هم `MOC_UPDATE_URL` آدرس دیگری را می‌پذیرد.
 - **امنیت حساب:** 2FA را فعال کنید و Release را فقط از حساب خودتان منتشر کنید؛ چون اسکریپت با root اجرا می‌شود، کنترل مخزن یعنی کنترل سرورهای کاربران.
 - در Settings -> Branches می‌توانید branch `main` را حفاظت کنید تا بدون CI سبز ادغام نشود.
