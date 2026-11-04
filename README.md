@@ -57,10 +57,12 @@ Supports NX Panel, 3x-ui, Alireza x-ui and classic X-UI.
 
 Usage: sudo bash XUI-SPM.sh [--no-color] [--no-anim] [--fancy | --safe-icons] [--verify] [--check-update] [--self-update] [--help] [--version] [-self-update] [--help] [--version]
 Run "Smart backup" on the OLD server and "Migrate / restore" on the NEW server (DNS + health verification and a final report run automatically).
-  --verify        re-run only the DNS / health verification laterhe NEW server (DNS + health verification anda final report run automatically).                                                                                 --check-update  look for a newer version of this script
+  --verify        re-run only the DNS / health verification laterhe NEW server (DNS + health verification anda final report run automatically).
+  --check-update  look for a newer version of this script
   --self-update   update this script from its GitHub addresslater
   --no-anim       turn off the logo / menu animation and the typing effect
-  --fancy         use emoji icons (default: plain characters that every console font has);  --safe-icons switches back
+  --fancy         use emoji icons (default: plain characters that every console font has);
+  --safe-icons    switches back
   --probe         print this server's hardware / network inspection as KEY=VALUE lines (used by the remote server check)
   Environment: NO_COLOR=1 disables colors, MOC_NO_ANIM=1 disables animation, MOC_UPDATE_URL sets the update address.
 
