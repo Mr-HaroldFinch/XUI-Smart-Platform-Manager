@@ -41,13 +41,13 @@ English and Persian (Farsi) interface. Needs Linux (Debian/Ubuntu recommended), 
 ## Install (with checksum verification)
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/XUI-SPM.sh
-curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/XUI-SPM.sh.sha256
+curl -fsSLO https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh
+curl -fsSLO https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/main/XUI-SPM.sh.sha256
 sha256sum -c XUI-SPM.sh.sha256      # must print: XUI-SPM.sh: OK
 sudo bash XUI-SPM.sh
 ```
 
-Compare the hash with the one on the [Releases](https://github.com/YOUR_USER/YOUR_REPO/releases) page too: if the two sources disagree, do not run the file.
+Compare the hash with the one on the [Releases](https://github.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/releases) page too: if the two sources disagree, do not run the file.
 
 ## Options
 
