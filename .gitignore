@@ -1,0 +1,10 @@
+# local backups and server lists must never be committed
+XUI_Backup_*
+*.tar.gz
+*.tar.gz.enc
+servers.dat
+servers.pref
+*.bak
+*.bak-*
+*.log
+.DS_Store

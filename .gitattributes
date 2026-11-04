@@ -1,0 +1,5 @@
+# The script must keep Unix (LF) line endings, also when it is edited on Windows
+*.sh text eol=lf
+*.sha256 text eol=lf
+SHA256SUMS text eol=lf
+*.yml text eol=lf
