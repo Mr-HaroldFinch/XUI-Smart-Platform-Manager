@@ -1,13 +1,40 @@
-# XUI-SPM - X-UI Smart Panel Manager
+![X-UI Smart Platform Manager](assets/banner.png)
+# 🚀 Universal X-UI Panel Manager (X-UI Smart Platform Manager)
 
-One Bash script to manage **NX Panel**, **3x-ui (MHSanaei)**, **Alireza x-ui** and classic **x-ui (vaxilu)**:
+An enterprise-grade, interactive Linux shell script powered by **MOC Networks Smart Solution** for seamless management, secure multi-mechanism backups, zero-downtime migrations, and performance optimization of X-UI family panels (`NX Panel`, `3x-ui`, `Alireza x-ui`, and `classic x-ui`).
 
-- **Smart backup** - consistent SQLite snapshot, optional AES-256 encryption, panel type auto-detected.
-- **Migrate / restore** - exact database import into 3x-ui / Alireza / x-ui, or guided NX Panel migration. Test mode shows the same checks as a real migration (with a server score). Runs on this server or on a remote one over SSH.
-- **Inspect a backup** - users, domains, inbounds, exposure, certificates.
-- **Install / update a panel** - optional Nginx + HTTPS.
-- **System optimization** - expired/unused certificates, old backups, leftovers, server check and scoring (hardware, network, NAT, GitHub access), VPN stealth check, full system update.
-- **Self-update** from this repository, verified by SHA-256.
+---
+
+## ✨ Key Features
+
+- **🌐 Multi-Panel Hybrid Support:** Fully compatible with NX Panel, 3x-ui (MHSanaei), Alireza, and classic vaxilu x-ui environments.
+- **📦 Smart & Consistent Backups:** Performs consistent online SQLite database snapshots (preventing WAL format data loss) combined with robust **AES-256-CBC (PBKDF2)** military-grade encryption.
+- **🔄 Direct SSH Live Migration:** Generates secure handshakes to seamlessly push backups and transfer dependencies directly from an old server to a new destination over custom SSH ports.
+- **🔍 Advanced Deep Inspection:** Inspects backup archives prior to restoration, auditing inbound protocols, configurations, dynamic traffic logs, and active users.
+- **🛡️ Pre-Flight Infrastructure Report & Audits:** Analyzes public IPv4/IPv6 reputation against major global DNSBL blacklists, evaluates hardware health score benchmarks, and profiles latency metrics.
+- **🚀 Automated Nginx & HTTPS Stack:** Automated Nginx reverse-proxy installation featuring seamless Let's Encrypt Certbot integration for immediate SSL provisioning.
+- **🧹 System Optimizer & Cleaners:** Smart scanner to scrub expired or unused TLS certificates, safely flush redundant legacy backups, and clean rollback leftovers.
+
+---
+
+## 📋 Prerequisites
+
+The script strictly requires **Bash 4.4 or newer** and must be executed with **root privileges** (`sudo`). 
+
+### Required Tools
+The manager features a **built-in adaptive package collector** that can automatically fetch missing components on Debian/Ubuntu systems. However, ensuring these core packages are present is highly recommended:
+- `openssl` (for AES-256 encryption/decryption workflows)
+- `sqlite3` (for transaction-safe database backups and audits)
+- `curl` & `wget` (for fetching installers and API lookups)
+- `tar` & `gzip` / `unzip` (for secure file archiving operations)
+- `dnsutils` (`dig`) & `iputils-ping` (for DNS profiling and live network checks)
+- `openssh-client` & `sshpass` (optional, for automated background network syncs)
+
+---
+
+## ⚙️ Quick Start (No Installation Required)
+
+You do not need to install this script or clone the repository. It is designed to be fetched and executed instantly in-memory or directly on any Linux server.
 
 English and Persian (Farsi) interface. Needs Linux (Debian/Ubuntu recommended), Bash 4.4+, `curl`, `python3`, `sqlite3`, `openssl`, run as root.
 
