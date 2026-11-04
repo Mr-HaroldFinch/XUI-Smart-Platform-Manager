@@ -1,104 +1,47 @@
-![X-UI Smart Platform Manager](assets/banner.png)
-# 🚀 Universal X-UI Panel Manager (X-UI Smart Platform Manager)
+# XUI-SPM - X-UI Smart Panel Manager
 
-[![License: GPL v3](https://shields.io)](https://gnu.org)
-[![Bash Version](https://shields.io)](https://gnu.org)
-[![Version](https://shields.io)](#)
+One Bash script to manage **NX Panel**, **3x-ui (MHSanaei)**, **Alireza x-ui** and classic **x-ui (vaxilu)**:
 
-An enterprise-grade, interactive Linux shell script powered by **MOC Networks Smart Solution** for seamless management, secure multi-mechanism backups, zero-downtime migrations, and performance optimization of X-UI family panels (`NX Panel`, `3x-ui`, `Alireza x-ui`, and `classic x-ui`).
+- **Smart backup** - consistent SQLite snapshot, optional AES-256 encryption, panel type auto-detected.
+- **Migrate / restore** - exact database import into 3x-ui / Alireza / x-ui, or guided NX Panel migration. Test mode shows the same checks as a real migration (with a server score). Runs on this server or on a remote one over SSH.
+- **Inspect a backup** - users, domains, inbounds, exposure, certificates.
+- **Install / update a panel** - optional Nginx + HTTPS.
+- **System optimization** - expired/unused certificates, old backups, leftovers, server check and scoring (hardware, network, NAT, GitHub access), VPN stealth check, full system update.
+- **Self-update** from this repository, verified by SHA-256.
 
----
+English and Persian (Farsi) interface. Needs Linux (Debian/Ubuntu recommended), Bash 4.4+, `curl`, `python3`, `sqlite3`, `openssl`, run as root.
 
-## ✨ Key Features
+## Install (with checksum verification)
 
-- **🌐 Multi-Panel Hybrid Support:** Fully compatible with NX Panel, 3x-ui (MHSanaei), Alireza, and classic vaxilu x-ui environments.
-- **📦 Smart & Consistent Backups:** Performs consistent online SQLite database snapshots (preventing WAL format data loss) combined with robust **AES-256-CBC (PBKDF2)** military-grade encryption.
-- **🔄 Direct SSH Live Migration:** Generates secure handshakes to seamlessly push backups and transfer dependencies directly from an old server to a new destination over custom SSH ports.
-- **🔍 Advanced Deep Inspection:** Inspects backup archives prior to restoration, auditing inbound protocols, configurations, dynamic traffic logs, and active users.
-- **🛡️ Pre-Flight Infrastructure Report & Audits:** Analyzes public IPv4/IPv6 reputation against major global DNSBL blacklists, evaluates hardware health score benchmarks, and profiles latency metrics.
-- **🚀 Automated Nginx & HTTPS Stack:** Automated Nginx reverse-proxy installation featuring seamless Let's Encrypt Certbot integration for immediate SSL provisioning.
-- **🧹 System Optimizer & Cleaners:** Smart scanner to scrub expired or unused TLS certificates, safely flush redundant legacy backups, and clean rollback leftovers.
-
----
-
-## 📋 Prerequisites
-
-The script strictly requires **Bash 4.4 or newer** and must be executed with **root privileges** (`sudo`). 
-
-### Required Tools
-The manager features a **built-in adaptive package collector** that can automatically fetch missing components on Debian/Ubuntu systems. However, ensuring these core packages are present is highly recommended:
-- `openssl` (for AES-256 encryption/decryption workflows)
-- `sqlite3` (for transaction-safe database backups and audits)
-- `curl` & `wget` (for fetching installers and API lookups)
-- `tar` & `gzip` / `unzip` (for secure file archiving operations)
-- `dnsutils` (`dig`) & `iputils-ping` (for DNS profiling and live network checks)
-- `openssh-client` & `sshpass` (optional, for automated background network syncs)
-
----
-
-## ⚙️ Quick Start (No Installation Required)
-
-You do not need to install this script or clone the repository. It is designed to be fetched and executed instantly in-memory or directly on any Linux server.
-
-### Method 1: Execute Instantly via Curl (Recommended)
-Run the orchestration utility immediately with a single line of code:
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/X-UI-smart-manager.sh)"
+curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/XUI-SPM.sh
+curl -fsSLO https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/XUI-SPM.sh.sha256
+sha256sum -c XUI-SPM.sh.sha256      # must print: XUI-SPM.sh: OK
+sudo bash XUI-SPM.sh
 ```
 
-### Method 2: Execute Instantly via Wget (Alternative)
-If `curl` is missing on your minimal Linux template, use `wget`:
-```bash
-bash <(curl -Ls https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/X-UI-smart-manager.sh)"
+Compare the hash with the one on the [Releases](https://github.com/YOUR_USER/YOUR_REPO/releases) page too: if the two sources disagree, do not run the file.
+
+## Options
+
+```
+sudo bash XUI-SPM.sh [--no-color] [--no-anim] [--fancy | --safe-icons]
+                               [--verify] [--check-update] [--self-update] [--help] [--version]
 ```
 
-### Method 3: Download and Run Separately
-If you prefer to persist the script locally before invocation:
-```bash
-# Download the script file
-curl -O https://raw.githubusercontent.com/Mr-HaroldFinch/XUI-Smart-Platform-Manager/X-UI-smart-manager.sh
+`NO_COLOR=1`, `MOC_NO_ANIM=1` and `MOC_UPDATE_URL=<raw url>` are also understood.
 
-# Grant execution permissions
-chmod +x X-UI-smart-manager.sh
+## Privacy and safety
 
-# Run with root privileges
-sudo ./X-UI-smart-manager.sh
-```
----
+- **No password is ever stored.** The optional saved-server list (`/etc/moc-networks/servers.dat`, encoded, mode 600) keeps only name, address, SSH port, status, score and location.
+- Backups can be encrypted (AES-256-CBC, PBKDF2). Keep the password: there is no recovery.
+- Updates and installers are downloaded over HTTPS only; the script checks syntax and, when a `.sha256` file is published next to it, the hash.
+- Read the script before running it as root - that is good practice for any script you download.
 
-## 🚀 Usage
+## Updating
 
-Run the utility interactively using standard execution:
-```bash
-sudo ./X-UI-smart-manager.sh
-```
-*Upon launch, a highly intuitive visual menu will assist you in selecting your preferred UI interface language (**English** or **فارسی**).*
+Main menu -> **Update this script**, or `sudo bash XUI-SPM.sh --self-update`. The previous version is kept as `*.bak-<version>`.
 
-### Terminal Arguments & Switches
-Fine-tune the behavior of the manager using the following CLI arguments:
+## License
 
-| Switch | Description |
-| :--- | :--- |
-| `--verify` | Skips main loops and forces a post-migration status re-check on local DNS and system health. |
-| `--self-update` | Pulls down the latest verified version of the core script straight from GitHub. |
-| `--check-update` | Run an isolated query check against GitHub to view version parity. |
-| `--no-anim` | Disables character-typewriter visual layouts and shimmer effects (ideal for raw logs). |
-| `--no-color` | Strips ANSI sequence tags out of output descriptors for strict plain text logging. |
-| `-h`, `--help` | Prints standard execution flags and system documentation. |
-
-#### Example Commands:
-```bash
-# Run isolated background health checks on current inbounds
-sudo ./X-UI-smart-manager.sh --verify
-
-# Force clean interface formatting for remote logging devices
-sudo ./X-UI-smart-manager.sh --no-anim --no-color
-```
-
-
----
-
-## 📄 License
-
-This project is licensed under the **GPL v3 (GNU General Public License v3)**. You are free to redistribute, modify, and utilize this orchestration engine under the condition that all derived downstream products remain entirely open-source. For detailed declarations, see the [LICENSE](LICENSE) file.
-
+MIT - see [LICENSE](LICENSE).
