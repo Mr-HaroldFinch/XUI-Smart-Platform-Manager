@@ -62,8 +62,7 @@ Run "Smart backup" on the OLD server and "Migrate / restore" on the NEW server (
   --no-anim       turn off the logo / menu animation and the typing effect
   --fancy         use emoji icons (default: plain characters that every console font has);  --safe-icons switches back
   --probe         print this server's hardware / network inspection as KEY=VALUE lines (used by the remote server check)
-Environment: NO_COLOR=1 disables colors, MOC_NO_ANIM=1 disables animation, MOC_UPDATE_URL sets the update address.                                                                                                              --probe         print this server's hardware / network inspection as KEY=VALUE lines (used by the remote server check)
-Environment: NO_COLOR=1 disables colors, MOC_NO_ANIM=1 disables animation, MOC_UPDATE_URL sets the update address.
+  Environment: NO_COLOR=1 disables colors, MOC_NO_ANIM=1 disables animation, MOC_UPDATE_URL sets the update address.
 
 ```
 `NO_COLOR=1`, `MOC_NO_ANIM=1` and `MOC_UPDATE_URL=<raw url>` are also understood.
